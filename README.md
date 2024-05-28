@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## To Check Rspec Run the following command inside project folder
+bundle exec rspec --format documentation
