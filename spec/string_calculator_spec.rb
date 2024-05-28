@@ -44,5 +44,11 @@ describe StringCalculator do
         expect(StringCalculator.add("//;\n1;2;-3;4;-5")).to eq("negative numbers not allowed -3,-5")
       end
     end
+
+    context "given string with delimiter of any length (“//[***]\n1***2***3”)" do
+      it "returns 6" do
+        expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
+      end
+    end
   end
 end
