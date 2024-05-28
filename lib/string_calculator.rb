@@ -1,9 +1,7 @@
 class StringCalculator
 
   def self.add(string)
-    if string.empty?
-      0
-    end
+    string.split(',').map(&:to_i).sum
   end
 
 end
