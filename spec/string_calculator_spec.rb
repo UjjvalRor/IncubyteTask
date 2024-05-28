@@ -39,8 +39,8 @@ describe StringCalculator do
       end
     end
 
-    context "given string with negative numbers" do
-      it "returns negative numbers" do
+    context "given string with negative numbers (//;\n1;2;-3;4;-5)" do
+      it "returns negative numbers -3,-5" do
         expect(StringCalculator.add("//;\n1;2;-3;4;-5")).to eq("negative numbers not allowed -3,-5")
       end
     end
@@ -48,6 +48,18 @@ describe StringCalculator do
     context "given string with delimiter of any length (“//[***]\n1***2***3”)" do
       it "returns 6" do
         expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
+      end
+    end
+
+    context "given string with multiple delimiters (//[*][%]\n1*2%3)" do
+      it "returns 6" do
+        expect(StringCalculator.add("//[*][%]\n1*2%3")).to eq(6)
+      end
+    end
+
+    context "given string with multiple delimiters of any length (//[***][&&&][$$$]\n1***2&&&3***4$$$5)" do
+      it "returns 15" do
+        expect(StringCalculator.add("//[***][&&&][$$$]\n1***2&&&3***4$$$5")).to eq(15)
       end
     end
   end

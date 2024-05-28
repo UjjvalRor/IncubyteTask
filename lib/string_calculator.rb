@@ -2,11 +2,17 @@ class StringCalculator
 
   def self.add(string)
     #Check if delimiter is present
-    delimiter = string.split("//").last.split("\n").first.gsub(/\[|\]/, '') if string.start_with?("//")
+    if string.start_with?("//")
+      if string.start_with?("//[")
+        delimiter = string[/\[(.*)\]\n/, 1].split("][")
+      else
+        delimiter = string[/\/\/(.*)\n/, 1]
+      end
+    end
 
     # Find array of string for sum
     if delimiter
-      string_arr = string.split("\n").last.split("#{delimiter}")
+      string_arr = string.split("\n").last.split(Regexp.union(delimiter))
     else
       string_arr = string.split(/\n|\,/)
     end
