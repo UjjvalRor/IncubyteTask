@@ -38,5 +38,11 @@ describe StringCalculator do
         expect(StringCalculator.add("//;\n1;2")).to eq(3)
       end
     end
+
+    context "given string with negative numbers" do
+      it "returns negative numbers" do
+        expect(StringCalculator.add("//;\n1;2;-3;4;-5")).to eq("negative numbers not allowed -3,-5")
+      end
+    end
   end
 end
